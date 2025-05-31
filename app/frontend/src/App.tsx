@@ -8,9 +8,9 @@ const App: Component = () => {
     <header>
       <h1>OptiFin</h1>
       <nav class={styles.NavBar}>
-        <A href='/profile' activeClass={styles.SectionActive}>Your profile</A>
-        <A href='/portfolio' activeClass={styles.SectionActive}>Your portfolio</A>
-        <A href='/stock-market' activeClass={styles.SectionActive}>The stock market</A>
+        <A href='/profile' activeClass={styles.SectionActive}>Votre profil</A>
+        <A href='/portfolio' activeClass={styles.SectionActive}>Votre portefeuille</A>
+        <A href='/stock-market' activeClass={styles.SectionActive}>Les marchés financiers</A>
       </nav>
     </header>
   );
