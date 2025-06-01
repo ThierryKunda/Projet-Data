@@ -1,0 +1,28 @@
+.SearchBar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.SearchBar input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.ShareInput {
+    width: 60%;
+}
+
+.AmountInput {
+    width: 20%;
+}
+
+.SearchBar button:last-child {
+    background-color: #83a8cf;
+    cursor: pointer;
+    width: 20%;
+    box-shadow: none;
+    border: none;
+    border-radius: 2px;
+}
