@@ -1,0 +1,28 @@
+.Charts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.SearchBar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.SearchBar input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.SearchBar button {
+    background-color: #83a8cf;
+    cursor: pointer;
+    width: 20%;
+    box-shadow: none;
+    border: none;
+    border-radius: 2px;
+}
