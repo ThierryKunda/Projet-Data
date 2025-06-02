@@ -1,6 +1,9 @@
+import { createSignal, createResource, Switch, Match, createEffect } from 'solid-js';
+
 import styles from '../../styles/Portfolio.module.css';
 import PortfolioPie from '../charts/PortfolioPie';
 import PortfolioTable from '../charts/PortfolioTable';
+import { fetchPortfolioInformation, PortfolioData } from '../../utils';
 
 export default function Portfolio() {
     return <div>
@@ -23,9 +26,25 @@ const SearchBar = () => {
 }
 
 const InvestmentList = () => {
+    const [investments] = createResource(fetchPortfolioInformation);
+
+    createEffect(() => {
+        console.log(investments())
+    })
+
     return <div class={styles.InvestmentList}>
         <h2>Mes investissements</h2>
-        <PortfolioPie />
-        <PortfolioTable />
+        <Switch>
+            <Match when={investments.loading}>
+                <div>Récupération des investissements...</div>
+            </Match>
+            <Match when={investments.error}>
+                <div>Erreur lors du chargement des investissements</div>
+            </Match>
+            <Match when={investments()}>
+                <PortfolioPie investments={investments() ?? []} />
+                <PortfolioTable investments={investments() ?? []} />
+            </Match>
+        </Switch>
     </div>
 }

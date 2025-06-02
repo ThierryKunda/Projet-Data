@@ -26,3 +26,19 @@
     border: none;
     border-radius: 2px;
 }
+
+.InvestmentTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.InvestmentTable th,
+.InvestmentTable td {
+    padding: 12px 15px;
+    border: 1px solid #eee;
+}
+
+.InvestmentTable th {
+    background-color: #83a8cf;
+    text-align: left;
+}

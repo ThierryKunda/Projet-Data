@@ -1,7 +1,7 @@
 import pandas as pd
 import yfinance as yf
 
-class DataFetcher:
+class MarketDataFetcher:
     def __init__(self, symbols: str):
 
         self.tickers = [yf.Ticker(sym) for sym in symbols.split(',')]
@@ -20,4 +20,26 @@ class DataFetcher:
         df = df.reset_index()
         df['Date'] = df['Date'].dt.strftime('%Y-%m-%d')
         return df[["Share", "Date", "Price", "Volume"]].to_dict(orient='records')
+    
+class UserDataFetcher:
+    def __init__(self):
+        pass
 
+    def get_user_investments(self):
+        data = [
+            { "Share": 'AAPL', "Amount": 1500, "Type": 'Action' },
+            { "Share": 'AMZN', "Amount": 2000, "Type": 'Action' },
+            { "Share": 'GOOGL', "Amount": 1200, "Type": 'Action' },
+            { "Share": 'MSFT', "Amount": 1800, "Type": 'Action' },
+            { "Share": '^TNX', "Amount": 1000, "Type": 'Obligation' },
+            { "Share": '^IRX', "Amount": 800, "Type": 'Obligation' },
+            { "Share": '^FVX', "Amount": 900, "Type": 'Obligation' },
+            { "Share": '^TYX', "Amount": 1100, "Type": 'Obligation' },
+            { "Share": 'XLK', "Amount": 700, "Type": 'ETF' },
+            { "Share": 'SPY', "Amount": 750, "Type": 'ETF' },
+            { "Share": 'VT', "Amount": 800, "Type": 'ETF' },
+            { "Share": 'XLC', "Amount": 650, "Type": 'ETF' },
+            { "Share": 'XLI', "Amount": 900, "Type": 'ETF' },
+            { "Share": 'VTI', "Amount": 850, "Type": 'ETF' },
+        ]
+        return data

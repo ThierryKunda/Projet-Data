@@ -17,3 +17,21 @@ export type SharesData = {
     Price: number;
     Volume: number;
 }[];
+
+export async function fetchPortfolioInformation(): Promise<PortfolioData> {
+    return new Promise((resolve) => {
+        d3.json<PortfolioData>('http://127.0.0.1:8000/user_investments').then((data) => {
+            if (data) {
+                resolve(data);
+            } else {
+                resolve([]);
+            }
+        });
+    });
+}
+
+export type PortfolioData = {
+    Share: string;
+    Amount: number;
+    Type?: string;
+}[];
